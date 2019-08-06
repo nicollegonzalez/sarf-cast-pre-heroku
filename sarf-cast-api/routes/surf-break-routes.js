@@ -88,17 +88,18 @@ router.get('/region/:region', (req, res, next) => {
 
       let allRegionalSurfBreaks = allTheSurfBreaks;
 
-      // console.log('-=-=-=-=', allRegionalSurfBreaks)
-
- 
+      
+      
       allRegionalSurfBreaks = allRegionalSurfBreaks.filter((eachSurfBreak)=>{
-          return surfBreakIDsArr.includes(eachSurfBreak.spot_id)
-        })
+        return surfBreakIDsArr.includes(String(eachSurfBreak.spot_id)) //to string before it wasn'y working
+      })
+      
  
       console.log("+-+-+-+-+-+-+-",allRegionalSurfBreaks);
 
   
-      res.json({theCounty: theCounty})
+      // res.json({theCounty: theCounty})
+      res.json({theRegionalSurfBreaks: allRegionalSurfBreaks})
     })
     .catch((err)=>{
       console.log("-=-=-=-=-=",err)
