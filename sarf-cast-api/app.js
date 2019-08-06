@@ -79,8 +79,11 @@ app.use(cors({
 // ROUTES MIDDLEWARE STARTS HERE:
 
 
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/user-routes');
 app.use('/api/auth', userRoutes);
+
+const surfBreakRoutes = require('./routes/surf-break-routes');
+app.use('/api', surfBreakRoutes); 
 
 
 module.exports = app;
